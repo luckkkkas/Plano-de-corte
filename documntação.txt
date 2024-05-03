@@ -1,0 +1,3 @@
+algoritmo de corte de padrões (pattern cutting algorithm)
+desenhar as formas das peças em um canvas HTML5 ou usando bibliotecas de gráficos como D3.js.
+

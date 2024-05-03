@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Corte</title>
+    <link rel="stylesheet" href="./assets/css/global.css">
+</head>
+<body>
+    <header></header>
+    <main>
+        <h2>Selecione Se há parede</h2>
+        <select id="parede">
+            <option value="0">Sem Parede</option>
+            <option value="1">Parede 1 lado</option>
+            <option value="2">Parede 2 lados</option>           
+        </select>
+        
+        <h2>Até o teto?</h2>
+        <select name="ateOTeto" id="ateOTeto">
+            <option value="true">Sim</option>
+            <option value="false">Não</option>
+        </select>
+
+        <h2>Medidas (mm)</h2>
+        <form action="">
+            <input type="number" id="altura" name="altura" placeholder="Digite a altura">
+            <input type="number" id="largura" name="largura" placeholder="Digite a Largura">
+        </form>
+
+        <h2>quantos vãos?</h2>
+        <select name="vao" id="vao">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+
+        <button onclick="cortarRoupeiro()">Cortear</button>
+    </main>
+    <footer>
+        <p> 2024 luckkkkas todos os direitos reservados</p>
+    </footer>
+    <script src="./assets/js/roupeiro.js"></script>
+</body>
+</html>

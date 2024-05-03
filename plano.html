@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desenho de Peças em Milímetros com HTML5 (Visível em Dispositivos Móveis)</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+            width: 100%; /* Define a largura do canvas para ocupar 100% do viewport */
+            max-width: 500px; /* Define a largura máxima do canvas para evitar esticamento excessivo */
+            height: auto; /* Define a altura do canvas para ser proporcional à largura */
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="2750" height="1850"></canvas>
+
+    <script>
+        // Obtém o elemento canvas
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+
+        // Define a escala de conversão de milímetros para pixels
+        var mmToPixel = 1; // Cada milímetro é representado por um pixel
+
+        // Função para desenhar uma peça
+        function desenharPeca(x, y, largura, altura, cor) {
+            // Verifica se a peça está dentro dos limites da chapa
+            if (x + largura <= canvas.width / mmToPixel && y + altura <= canvas.height / mmToPixel) {
+                ctx.fillStyle = cor; // Define a cor de preenchimento
+                ctx.fillRect(x * mmToPixel, y * mmToPixel, largura * mmToPixel, altura * mmToPixel); // Desenha o retângulo
+            }
+        }
+
+        // Desenha as peças
+        desenharPeca(10, 100, 2340, 320, 'red'); // Peça 1: (x, y, largura, altura, cor)
+        desenharPeca(10 + 2340 + 10, 100, 200, 900, 'blue'); // Peça 2: (x, y, largura, altura, cor)
+        desenharPeca(10 + 2340, 100, 400, 300, 'green'); // Peça 3: (x, y, largura, altura, cor)
+    </script>
+</body>
+</html>
