@@ -1,5 +1,5 @@
 function cortarRoupeiro(){
-
+   
     // recebe os elementos HTML
     const parede = parseInt(document.getElementById('parede').value);
     const ateOTeto = document.getElementById('ateOTeto').value;
@@ -10,7 +10,8 @@ function cortarRoupeiro(){
     var div = (vao - 1) * 1.5;
     var res = document.getElementById('res');
     const profundidade = document.getElementById('profundidade').value;
-
+    const nPrateleira = parseInt(document.getElementById('nPrateleira').value);
+    const gaveta = parseInt(document.getElementById('nGaveta').value);
    
     corpo(altura, largura, vao, ateOTeto);
     tamponamento(parede);
@@ -25,35 +26,135 @@ function cortarRoupeiro(){
         if (largura <= 0 || altura <= 0 || profundidade <= 0) {
             alert('Altura, largura ou profundidade inválida');
         } else {
-            // calculando o corpo;
-            if (ateOTeto) {
-                let prof = profundidade - 80
-                let profPrat = profundidade - 90
-                lateral = altura - 210;
-                base = largura - 60;
-                prat = ((base - div) / vao).toFixed(1);
-                travessaGaveta = (prat - 88);
+            // calculando o corpo de acordo com o vao;
+            let divisoria = vao - 1;
+            let nGaveta = gaveta * 2;
+            let rodape = largura - 100;
+            let trvRodape = profundidade - 100;
+            let tamanhoCalcoGaveta = gaveta * 200
+            let quantiCalcoGaveta = Math.ceil(gaveta / 2)
+            
+            res.innerText += `
+                ${rodape} rodapé do corpo
+                ${trvRodape} travessa rodapé
+                ${tamanhoCalcoGaveta} X 100 X ${quantiCalcoGaveta} Claço das gavetas
+            `
 
-                res.innerText += `
+           if(vao === 1){
+                if (ateOTeto) {
+                    // calcula o corpo ate o teto com 1 vao
+                    let prof = profundidade - 80
+                    let profPrat = profundidade - 90
+                    lateral = altura - 210;
+                    base = largura - 60;
+                    prat = ((base - div) / vao).toFixed(1);
+                    travessaGaveta = (prat - 88);
+
+                    res.innerText += `
+                        Corpo    
+                        ${lateral} X ${prof} X 2 laterais
+                        ${base} X ${prof} X 2 base/teto
+                        ${prat} X ${profPrat} X ${nPrateleira} prateleiras
+                        ${travessaGaveta} X 135 X ${gaveta} travessa de gaveta
+                    `;
+                
+                } else {
+                    // calcula o corpo não sendo ate o teto com 1 vao
+                    let prof = profundidade - 80
+                    let profPrat = profundidade - 90
+                    lateral = altura - 140;
+                    base = largura - 60;
+                    prat = ((base - div) / vao).toFixed(1);
+                    travessaGaveta = (prat - 88);
+
+
+                    res.innerText += `
+                        Corpo    
+                        ${lateral} X ${prof} X 2 laterais
+                        ${lateral} X ${prof} X ${divisoria} divisoria
+                        ${base} X ${prof} X 2 base/teto
+                        ${prat} X ${profPrat} X ${nPrateleira} prateleiras
+                        ${travessaGaveta} X 135 X ${gaveta} travessa de gaveta
+                    `;
+                }
+            }else if(vao === 2){
+                // calcula o corpo com dois vãos e ate o teto
+                if (ateOTeto) {
+                    
+                    let prof = profundidade - 80
+                    let profPrat = profundidade - 90
+                    lateral = altura - 210;
+                    base = largura - 60;
+                    prat = ((base - div) / vao).toFixed(1);
+                    travessaGaveta = (prat - 88);
+
+                    res.innerText += `
                     Corpo    
-                    ${lateral} X ${prof} lateral,\n ${base} X ${prof} X 2 base/teto,\n ${prat} X ${profPrat} prateleira,\n ${travessaGaveta} travessa de gaveta
-                `;
+                    ${lateral} X ${prof} X 2 laterais
+                    ${lateral} X ${prof} X ${divisoria} divisoria
+                    ${base} X ${prof} X 2 base/teto
+                    ${prat} X ${profPrat} X ${nPrateleira} prateleiras
+                    ${travessaGaveta} travessa de gaveta
+                    `;
 
-            } else {
-                let prof = profundidade - 80
-                let profPrat = profundidade - 90
-                lateral = altura - 140;
-                base = largura - 60;
-                prat = ((base - div) / vao).toFixed(1);
-                travessaGaveta = (prat - 88);
+                } else {
+                    // dois vaos nao sendo ate o teto
+                    let prof = profundidade - 80
+                    let profPrat = profundidade - 90
+                    lateral = altura - 140;
+                    base = largura - 60;
+                    prat = ((base - div) / vao).toFixed(1);
+                    travessaGaveta = (prat - 88);
 
 
-                res.innerText += `
-                    Corpo 
-                    ${lateral} X ${prof} lateral,\n ${base} X ${prof} X 2 base/teto,\n ${prat} X ${profPrat} prateleira,\n ${travessaGaveta} travessa de gaveta
-                `;
+                    res.innerText += `
+                    Corpo    
+                    ${lateral} X ${prof} X 2 laterais
+                    ${lateral} X ${prof} X ${divisoria} divisoria
+                    ${base} X ${prof} X 2 base/teto
+                    ${prat} X ${profPrat} X ${nPrateleira} prateleiras
+                   ${travessaGaveta} travessa de gaveta
+                    `;
+                }
+            }else{
+                // corpo com 3 vaos ate o teto
+                if (ateOTeto) {
+                    let prof = profundidade - 80
+                    let profPrat = profundidade - 90
+                    lateral = altura - 210;
+                    base = largura - 60;
+                    prat = ((base - div) / vao).toFixed(1);
+                    travessaGaveta = (prat - 88);
+
+                    res.innerText += `
+                    Corpo    
+                    ${lateral} X ${prof} X 2 laterais
+                    ${lateral} X ${prof} X ${divisoria} divisoria
+                    ${base} X ${prof} X 2 base/teto
+                    ${prat} X ${profPrat} X ${nPrateleira} prateleiras
+                    ${travessaGaveta} travessa de gaveta
+                    `;
+
+                } else {
+                    // 3 vaos nao sendo ate o teto
+                    let prof = profundidade - 80
+                    let profPrat = profundidade - 90
+                    lateral = altura - 140;
+                    base = largura - 60;
+                    prat = ((base - div) / vao).toFixed(1);
+                    travessaGaveta = (prat - 88);
+
+
+                    res.innerText += `
+                    Corpo    
+                    ${lateral} X ${prof} X 2 laterais
+                    ${lateral} X ${prof} X ${divisoria} divisoria
+                    ${base} X ${prof} X 2 base/teto
+                    ${prat} X ${profPrat} X ${nPrateleira} prateleiras
+                    ${travessaGaveta} travessa de gaveta
+                    `;
+                }
             }
-           
         }
 
     }
@@ -74,39 +175,61 @@ function cortarRoupeiro(){
 
     function tamponamento(valor){
         //    faz a verificação de quantas laterais inteiras tem
+        let sicha
+        sicha = largura - 60;
+
         if(valor === 0){
             res.innerText += `
                 Tamponamento 
-                lateral dois lados
+                ${altura} X ${profundidade} X 2 Lateral Tamponada
+                ${sicha} X 150 X 2 Engrosso Teto/base
+                ${sicha} X 80 X 1 Frente Rodapé
+                ${sicha} X 60 X 1 Acabamento
+                ${sicha} X 3 X 6mm X 1 Acabamento
             `
         }else if(valor === 1){
-            res.innerText +=  `
+
+            res.innerText += `
             Tamponamento 
-            lateral dois lados
-        `
+                ${altura} X ${profundidade} X 1 Lateral Tamponada
+                ${altura} X 150 X 2 Lateral parede
+                ${sicha} X 150 X 2 Engrosso Teto/base
+                ${sicha} X 80 X 1 Frente Rodapé
+                ${sicha} X 60 X 1 Acabamento
+                ${sicha} X 3 X 6mm X 1 Acabamento
+            `
         }else if(valor === 2){
-            res.innerText +=  `
-            Tamponamento 
-            lateral dois lados
-        `
+            res.innerText += `
+                Tamponamento 
+                ${altura} X 150 X 2 Lateral parede
+                ${sicha} X 150 X 2 Engrosso Teto/base
+                ${sicha} X 80 X 1 Frente Rodapé
+                ${sicha} X 60 X 1 Acabamento
+                ${sicha} X 3 X 6mm X 1 Acabamento
+            `
         }
         
     }
 
     function portas(porta){
-        if(porta === 1){
-            res.innerText +=  `
-            2 Portas 
-            
-        `
-        }else if(porta === 2){
-            res.innerText +=  `
+        let lar;
+        let h = (altura - 245).toFixed(0);
+        
+        if(porta === 2){
+            let lar = ((largura - 40) / 2).toFixed(0) ;
+
+            res.innerText += `
             Portas
-        `
+            ${h} X ${lar} X ${porta} portas
+            `;
         }else if(porta === 3){
+            let lar = ((largura - 40) / 3).toFixed(0) ;
+            
+            
             res.innerText +=  `
             Portas
-        `
+            ${h} X ${lar} X ${porta} portas
+            `;
         }
     }
 
@@ -152,4 +275,10 @@ function cortarRoupeiro(){
             `
         }
     }
+
+    
+}
+
+function limparTela(){
+    res.innerText = ''
 }

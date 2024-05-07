@@ -27,6 +27,8 @@
             <input type="number" value="2600" id="altura" name="altura" placeholder="Digite a altura">
             <input type="number" value="2600" id="largura" name="largura" placeholder="Digite a Largura">
             <input type="number" value="620" id="profundidade" name="profundidade" placeholder="Digite a Profundidade com tamponamento">
+            <h2>Prateleiras</h2>
+            <input type="number" value="10" id="nPrateleira" placeholder="Quantidade de prateleiras">
         </form>
 
         <h2>quantos vãos?</h2>
@@ -36,20 +38,37 @@
             <option value="3">3</option>
         </select>
 
+        <h2>quantas gavetas?</h2>
+        <select name="vao" id="nGaveta">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>
+
         <h2>Quantas portas?</h2>
         <select name="portas" id="portas">
-            <option value="1">1 porta</option>
+            <option value="1">sem portas</option>
             <option value="2">2 portas</option>
             <option value="3">3 portas</option>
         </select>
 
         <button onclick="cortarRoupeiro()">Cortear</button>
+        <button onclick="limparTela()">Limpar</button>
 
 
         <div id="res"></div>
     </main>
     <footer>
-        <p> 2024 luckkkkas todos os direitos reservados</p>
+       
     </footer>
     <script src="./assets/js/roupeiro.js"></script>
 </body>
