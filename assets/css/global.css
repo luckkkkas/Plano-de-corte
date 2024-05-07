@@ -11,6 +11,8 @@ img {
 
 body {
     height: 100vh;
+    width: 100vw;
+    display: flex;
 }
 
 footer {
@@ -20,4 +22,19 @@ footer {
     align-items: center;
     bottom: 0;
     margin: auto;
+}
+
+img {
+    border: 1px solid black;
+    margin: auto;
+
+}
+
+div#center{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

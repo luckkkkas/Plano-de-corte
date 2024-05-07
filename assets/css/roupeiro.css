@@ -1,0 +1,64 @@
+main {
+    height: 100vh;
+    width: 100vw;
+    /* background-image: url('../imagens/6446d3e44f.webp'); */
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    margin: 0 .5rem  ;
+}
+
+select{
+    background-color: transparent;
+    border-radius: .5rem;
+    width: 95%;
+    height: 3vh;
+    margin: 3px .5rem;
+    text-align: center;
+    justify-content: center;
+}
+
+input{
+    background-color: transparent;
+    margin: 3px .5rem;
+    border-radius: .5rem;
+    border: solid black 1px;
+    width: 90%;
+    height: 3vh;
+    text-align: left;
+    padding-left: .5rem;
+}
+
+button{
+    background-color: transparent;
+    border: solid black 1px;
+    width: 90vw;
+    margin: .7rem auto;
+    height: 3rem;
+    border-radius: .5rem;
+}
+
+
+
+  
+  /* Estilo para telas maiores ou iguais a 600px de largura */
+  @media only screen and (min-width: 500px) {
+    
+    main{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    select{
+        width: 40vw;
+    }
+
+    input{
+        width: 15vw;       
+        
+     }
+}
