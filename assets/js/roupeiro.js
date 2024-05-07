@@ -173,40 +173,68 @@ function cortarRoupeiro(){
         }
     }
 
-    function tamponamento(valor){
+    function tamponamento(valor, ateOTeto){
         //    faz a verificação de quantas laterais inteiras tem
         let sicha
         sicha = largura - 60;
 
-        if(valor === 0){
-            res.innerText += `
-                Tamponamento 
-                ${altura} X ${profundidade} X 2 Lateral Tamponada
-                ${sicha} X 150 X 2 Engrosso Teto/base
-                ${sicha} X 80 X 1 Frente Rodapé
-                ${sicha} X 60 X 1 Acabamento
-                ${sicha} X 3 X 6mm X 1 Acabamento
-            `
-        }else if(valor === 1){
+        if(ateOTeto){
 
-            res.innerText += `
-            Tamponamento 
-                ${altura} X ${profundidade} X 1 Lateral Tamponada
-                ${altura} X 150 X 2 Lateral parede
-                ${sicha} X 150 X 2 Engrosso Teto/base
-                ${sicha} X 80 X 1 Frente Rodapé
-                ${sicha} X 60 X 1 Acabamento
-                ${sicha} X 3 X 6mm X 1 Acabamento
-            `
-        }else if(valor === 2){
-            res.innerText += `
+            if(valor === 0){
+                res.innerText += `
+                    Tamponamento 
+                    ${altura} X ${profundidade} X 2 Lateral Tamponada
+                    ${sicha} X 150 X 2 Engrosso Teto/base
+                    ${sicha} X 80 X 1 Frente Rodapé
+                    ${sicha} X 60 X 1 Acabamento
+                    ${sicha} X 3 X 6mm X 1 Acabamento
+                `
+            }else if(valor === 1){
+
+                res.innerText += `
                 Tamponamento 
-                ${altura} X 150 X 2 Lateral parede
-                ${sicha} X 150 X 2 Engrosso Teto/base
-                ${sicha} X 80 X 1 Frente Rodapé
-                ${sicha} X 60 X 1 Acabamento
-                ${sicha} X 3 X 6mm X 1 Acabamento
-            `
+                    ${altura} X ${profundidade} X 1 Lateral Tamponada
+                    ${altura} X 150 X 2 Lateral parede
+                    ${sicha} X 150 X 2 Engrosso Teto/base
+                    ${sicha} X 80 X 1 Frente Rodapé
+                    ${sicha} X 60 X 1 Acabamento
+                    ${sicha} X 3 X 6mm X 1 Acabamento
+                `
+            }else if(valor === 2){
+                res.innerText += `
+                    Tamponamento 
+                    ${altura} X 150 X 2 Lateral parede
+                    ${sicha} X 150 X 2 Engrosso Teto/base
+                    ${sicha} X 80 X 1 Frente Rodapé
+                    ${sicha} X 60 X 1 Acabamento
+                    ${sicha} X 3 X 6mm X 1 Acabamento
+                `
+            }
+        }else{ 
+            if(valor === 0){
+                res.innerText += `
+                    Tamponamento 
+                    ${altura} X ${profundidade} X 2 Lateral Tamponada
+                    ${sicha} X 150 X 2 Engrosso Teto/base
+                    ${sicha} X 80 X 1 Frente Rodapé
+                `
+            }else if(valor === 1){
+
+                res.innerText += `
+                Tamponamento 
+                    ${altura} X ${profundidade} X 1 Lateral Tamponada
+                    ${altura} X 150 X 2 Lateral parede
+                    ${sicha} X 150 X 2 Engrosso Teto/base
+                    ${sicha} X 80 X 1 Frente Rodapé
+                `
+            }else if(valor === 2){
+                res.innerText += `
+                    Tamponamento 
+                    ${altura} X 150 X 2 Lateral parede
+                    ${sicha} X 150 X 2 Engrosso Teto/base
+                    ${sicha} X 80 X 1 Frente Rodapé
+                `
+            }
         }
         
     }
