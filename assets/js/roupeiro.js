@@ -18,6 +18,8 @@ function cortarRoupeiro(){
     portas(porta);
     fundo(vao);
     acessorios(ateOTeto);
+
+    var tabela = '';
     
     
     function corpo(altura, largura, vao, ateOTeto) {
@@ -34,12 +36,27 @@ function cortarRoupeiro(){
             let tamanhoCalcoGaveta = gaveta * 200
             let quantiCalcoGaveta = Math.ceil(gaveta / 2)
             
-            res.innerText += `
+           tabela = `
+                <table border="solid">
+                    <tr>
+                        <th>Quantidade</th>
+                        <th>comprimento</th>
+                        <th>largura</th>
+                        <th>Descrição</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                </table>
+                
                 ${rodape} rodapé do corpo
                 ${trvRodape} travessa rodapé
                 ${tamanhoCalcoGaveta} X 100 X ${quantiCalcoGaveta} Claço das gavetas
             `
-
+            
            if(vao === 1){
                 if (ateOTeto) {
                     // calcula o corpo ate o teto com 1 vao

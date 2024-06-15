@@ -4,70 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plano de Corte</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/global.css">
     <link rel="stylesheet" href="./assets/css/roupeiro.css">
 </head>
 <body>
-    <header></header>
+   
     <main>
-        <h2>Selecione Se há parede</h2>
         <select id="parede">
             <option value="0">Sem Parede</option>
             <option value="1">Parede 1 lado</option>
             <option value="2">Parede 2 lados</option>           
         </select>
         
-        <h2>Até o teto?</h2>
         <select name="ateOTeto" id="ateOTeto">
-            <option value="true">Sim</option>
+            <option value="true">Até o teto</option>
             <option value="false">Não</option>
         </select>
 
-        <h2>Medidas (mm)</h2>
         <form action="">
-            <input type="number" value="2600" id="altura" name="altura" placeholder="Digite a altura">
-            <input type="number" value="2600" id="largura" name="largura" placeholder="Digite a Largura">
-            <input type="number" value="620" id="profundidade" name="profundidade" placeholder="Digite a Profundidade com tamponamento">
-            <h2>Prateleiras</h2>
-            <input type="number" value="10" id="nPrateleira" placeholder="Quantidade de prateleiras">
+            <input type="number" id="altura" name="altura" placeholder="Digite a altura">
+            <input type="number" id="largura" name="largura" placeholder="Digite a Largura">
+            <input type="number" id="profundidade" name="profundidade" placeholder="Digite a Profundidade ">
+            <input type="number"  id="nPrateleira" placeholder="Quantidade de prateleiras">
         </form>
 
-        <h2>Quantos vãos?</h2>
         <select name="vao" id="vao">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+            <option value="1">1 Vão</option>
+            <option value="2">2 Vãos</option>
+            <option value="3">3 Vãos</option>
         </select>
 
-        <h2>Quantas gavetas?</h2>
         <select name="vao" id="nGaveta">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
+            <option value="0">Sem Gavetas</option>
+            <option value="1">1 Gaveta</option>
+            <option value="2">2 Gavetas</option>
+            <option value="3">3 Gavetas</option>
+            <option value="4">4 Gavetas</option>
+            <option value="5">5 Gavetas</option>
+            <option value="6">6 Gavetas</option>
+            <option value="7">7 Gavetas</option>
+            <option value="8">8 Gavetas</option>
+            <option value="9">9 Gavetas</option>
+            <option value="10">10 Gavetas</option>
+            <option value="11">11 Gavetas</option>
+            <option value="12">12 Gavetas</option>
         </select>
 
-        <h2>Quantas portas?</h2>
         <select name="portas" id="portas">
-            <option value="1">sem portas</option>
+            <option value="1">Sem Paortas</option>
             <option value="2">2 portas</option>
             <option value="3">3 portas</option>
         </select>
+        
+        <div class="botoes">
+            <button onclick="limparTela()">Limpar</button>
+            <button onclick="cortarRoupeiro()">Cortar</button>
+        </div>
 
-        <button onclick="cortarRoupeiro()">Cortear</button>
-        <button onclick="limparTela()">Limpar</button>
-
-
-        <div id="res"></div>
+        
     </main>
+    <div id="res">lista</div>
+
+    <div id="plano-de-corte"></div>
     <footer>
        
     </footer>

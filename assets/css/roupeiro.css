@@ -1,10 +1,17 @@
 main {
+    margin-top: 70px;
     height: 100vh;
     width: 100vw;
     /* background-image: url('../imagens/6446d3e44f.webp'); */
     background-size: contain;
     display: flex;
     flex-direction: column;
+    max-width: 500px;
+}
+
+
+body{
+    background-color:dark;
 }
 
 h2 {
@@ -12,30 +19,42 @@ h2 {
 }
 
 select{
-    background-color: transparent;
+    background-color: gray;
     border-radius: .5rem;
     width: 95%;
-    height: 3vh;
+    height: 8vh;
     margin: 3px .5rem;
     text-align: center;
     justify-content: center;
+    color: #ffff;
 }
 
 input{
-    background-color: transparent;
-    margin: 3px .5rem;
+    background-color: gray;
+    margin:3px .5rem;
     border-radius: .5rem;
     border: solid black 1px;
-    width: 90%;
-    height: 3vh;
+    width: 95%;
+    height: 8vh;
     text-align: left;
     padding-left: .5rem;
+    
+}
+
+input::-webkit-input-placeholder {
+    color: #ffff;
+}
+
+.botoes{
+    width: 100vw;
+    text-align: center;
+    max-width: 500px;
 }
 
 button{
-    background-color: transparent;
+    background-color: lightgray;
     border: solid black 1px;
-    width: 90vw;
+    width: 95%;
     margin: .7rem auto;
     height: 3rem;
     border-radius: .5rem;
@@ -43,22 +62,24 @@ button{
 
 
 
+
   
   /* Estilo para telas maiores ou iguais a 600px de largura */
   @media only screen and (min-width: 500px) {
     
-    main{
+    body{
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+       flex-direction: row;
     }
-
-    select{
-        width: 40vw;
+    
+    main{
+        margin-top: 10px;
     }
-
-    input{
-        width: 15vw;       
-        
-     }
+    div#res{
+        width: 61vw;
+        height: 100vh;
+        background-color: aliceblue;
+        padding: 2rem;
+    }
+    
 }
