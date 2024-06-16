@@ -12,13 +12,10 @@ function cortarRoupeiro(){
     const gaveta = parseInt(document.getElementById('nGaveta').value);
     var div = (vao - 1) * 1.5;
     var res = document.getElementById('res');
-   
+
     corpo(altura, largura, vao, ateOTeto);
     tamponamento(parede);
-    portas(porta);
-    fundo(vao);
-    acessorios(ateOTeto);
-    //gerarTabela();
+   //gerarTabela();
         
     function corpo(altura, largura, vao, ateOTeto) {
         var lateralH, nlaterais, lateralP, base, prat, travessaGaveta, fundoH, fundoL, porta1, porta2, puxador, cabide, trilho = 0;
@@ -28,34 +25,34 @@ function cortarRoupeiro(){
             alert('Altura, largura ou profundidade inválida');
         } else {
             //calcula as operações comum para todos
-            lateralP = profundidade - 80;
-            nlaterais = vao + 1;
-            base = largura - 60;
-            trilho = base - 2;
+            lateralP = (profundidade - 80).toFixed(1);
+            nlaterais = (vao + 1).toFixed(1);
+            base = (largura - 60).toFixed(1);
+            trilho = (base - 2).toFixed(1);
             
             // --------------------;
             if (ateOTeto) {
                 //calcula as peças se o movel for ate o teto
-                lateralH = altura - 240;
+                lateralH = (altura - 240).toFixed(1);
                 puxador = lateralH - 5;
                 if(vao === 1){            
                     prat = largura - 90; 
                     cabide = prat - 5;
-                    travessaGaveta = largura - 148;
+                    travessaGaveta = (largura - 148).toFixed(1);
                     fundoL = largura - 65;
                     fundoH = altura - 215;
                 }else if(vao === 2){
-                    prat = (largura - 105) /2; 
+                    prat = ((largura - 105) /2).toFixed(1); 
                     cabide = prat - 5;
-                    travessaGaveta = ((largura - 135) / 2)- 5.8 ;
+                    travessaGaveta = (((largura - 135) / 2)- 5.8 ).toFixed(1);
                     fundoL = prat + 1.5;
                     fundoH = altura - 215;
                     porta1 = prat - 20 ;
                     porta2 = prat + 5; 
                 }else if(vao === 3){
-                    prat = (largura - 120) /3; 
+                    prat = ((largura - 120) /3).toFixed(1); 
                     cabide = prat - 5;
-                    travessaGaveta = ((largura - 150) / 3) - 5.8 ;
+                    travessaGaveta = (((largura - 150) / 3) - 5.8 ).toFixed(1);
                     fundoL = prat + 1.5;
                     fundoH = altura - 215;
                     porta1 = prat - 20 ;
@@ -75,15 +72,15 @@ function cortarRoupeiro(){
                     prat = (largura - 105)/2; 
                     cabide = prat - 5;
                     travessaGaveta = largura - 148;
-                    Math.round(fundoL) = (largura - 65) / 3 ;
+                    Math.round(fundoL) = ((largura - 65) / 3 ).toFixed(1);
                     fundoL = prat + 1.5;
                     porta1 = prat - 20 ;
                     porta2 = prat + 5;
                 }else if(vao === 3){
-                    prat = (largura - 120)/3; 
+                    prat = ((largura - 120)/3).toFixed(1); 
                     cabide = prat - 5;
                     travessaGaveta = largura - 178;
-                    Math.round(fundoL) = ((largura - 65) / 3 );
+                    Math.round(fundoL) = (((largura - 65) / 3 )).toFixed(1);
                     fundoL = prat + 1.5;
                     porta1 = prat - 20;
                     porta2 = prat + 5;
@@ -157,96 +154,177 @@ function cortarRoupeiro(){
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>Quantidade</th>
                                             <th>Comprimento</th>
                                             <th>Acessório</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>quantidade cabides</td>
                                             <td>${cabide}</td>
                                             <td>cabides</td>
                                         </tr>
                                         <tr>
-                                            <td>quantidade pux</td>
                                             <td>${puxador}</td>
                                             <td>Puxadores</td>
                                         </tr>
                                         <tr>
-                                            <td>quantidade trillho(par)</td>
                                             <td>${trilho}</td>
                                             <td>Trilho</td>
                                         </tr>
-
+                                    </tbody>
+                                <table>
                             `;
                             res.innerHTML = tableHTML;
                 }
         
 
     }
-    
-    
-    function acessorios(ateOTeto){
-        let puxador;
-        let trilho;
 
-        // calcula acessorios se o roupeiro vai ate o teto
-        if(ateOTeto){
-            puxador = altura - 175;
-            trilho = largura - 62;
-
-           //aqui continua atabela
-        }
-    }
-
-    function tamponamento(valor, ateOTeto){
-        //    faz a verificação de quantas laterais inteiras tem
-        let sicha
-        sicha = largura - 60;
-
-        if(ateOTeto){
-
-            if(valor === 0){
-               //aqui continua atabela
-            }else if(valor === 1){
-
-               //aqui continua atabela
-            }else if(valor === 2){
-               //aqui continua atabela
-            }
-        }else{ 
-            if(valor === 0){
-               //aqui continua atabela
-            }else if(valor === 1){
-
-                //aqui continua atabela
-            }else if(valor === 2){
-                //aqui continua atabela
-            }
-        }
-        
-    }
-
-    function portas(porta){
-        let lar;
-        let h = (altura - 245).toFixed(0);
-        
-        if(porta === 2){
-            let lar = ((largura - 40) / 2).toFixed(0) ;
-
-            //aqui continua atabela
-        }else if(porta === 3){
-            let lar = ((largura - 40) / 3).toFixed(0) ;
-            
-            
-          //aqui continua atabela
-        }
-    }
-    
+   
 }
 
 
 function limparTela(){
     res.innerText = ''
+}
+
+function tamponamento(valor, ateOTeto){
+    let sicha, tSicha, nlateraisT, tLateralH, tLateralP, acRodape, acTeto;
+    sicha= largura - 60;
+    acRodape = sicha;
+    acTeto = sicha;
+    tLateralH = altura;
+    tLateralP = profundidade;
+    if(parede === 0 ){
+        nlateraisT = 2;
+        let tableHTML2 = `<table>
+            <thead>
+            <tr>
+                <th>Quantidade</th>
+                <th>Comprimento</th>
+                <th>Largura</th>
+                <th>Descrição</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>2</td>
+                <td>${sicha}</td>
+                <td>150</td>
+                <td>Base/teto</td>
+            </tr>
+            <tr>
+                <td>${nlateraisT}</td>
+                <td>${altura}</td>
+                <td>${profundidade}</td>
+                <td>Laterais</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>${acRodape}</td>
+                <td>80</td>
+                <td>Rodapé</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>${acTeto}</td>
+                <td>60</td>
+                <td>Ac Teto</td>
+            </tr>
+            </tbody>
+            </table>
+        `;
+        
+    res.innerHTML += tableHTML2
+    }else if(parede === 1){
+        nlateraisT = 1;
+        tSicha = 1;
+        let tableHTML2 = `<table>
+            <thead>
+            <tr>
+                <th>Quantidade</th>
+                <th>Comprimento</th>
+                <th>Largura</th>
+                <th>Descrição</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>2</td>
+                <td>${sicha}</td>
+                <td>150</td>
+                <td>Base/teto</td>
+            </tr>
+            <tr>
+                <td>${nlateraisT}</td>
+                <td>${altura}</td>
+                <td>${profundidade}</td>
+                <td>Laterais</td>
+            </tr>
+            <tr>
+                <td>${tSicha}</td>
+                <td>${altura}</td>
+                <td>${profundidade}</td>
+                <td>Laterais</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>${acRodape}</td>
+                <td>80</td>
+                <td>Rodapé</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>${acTeto}</td>
+                <td>60</td>
+                <td>Ac Teto</td>
+            </tr>
+            </tbody>
+            </table>
+        `;
+        
+    res.innerHTML += tableHTML2
+    }else{
+        nlateraisT = 0;
+        tSicha = 2;
+    }
+        let tableHTML2 = `<table>
+            <thead>
+            <tr>
+                <th>Quantidade</th>
+                <th>Comprimento</th>
+                <th>Largura</th>
+                <th>Descrição</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>2</td>
+                <td>${sicha}</td>
+                <td>150</td>
+                <td>Base/teto</td>
+            </tr>
+            <tr>
+                <td>${tSicha}</td>
+                <td>${altura}</td>
+                <td>${profundidade}</td>
+                <td>Laterais</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>${acRodape}</td>
+                <td>80</td>
+                <td>Rodapé</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>${acTeto}</td>
+                <td>60</td>
+                <td>Ac Teto</td>
+            </tr>
+            </tbody>
+            </table>
+        `;
+        
+    res.innerHTML += tableHTML2
 }
