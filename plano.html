@@ -3,57 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desenho de Peças em Milímetros com HTML5 (Visível em Dispositivos Móveis)</title>
+    <title>Tabela de Teste</title>
     <style>
-        canvas {
+        table {
+            width: 100%;
             border: 1px solid black;
-            width: 100%; /* Define a largura do canvas para ocupar 100% do viewport */
-            max-width: 500px; /* Define a largura máxima do canvas para evitar esticamento excessivo */
-            height: auto; /* Define a altura do canvas para ser proporcional à largura */
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
         }
     </style>
 </head>
 <body>
-    <canvas id="myCanvas" width="2750" height="1850"></canvas>
+    <div id="table-container"></div>
 
     <script>
-        // Obtém o elemento canvas
-        var canvas = document.getElementById('myCanvas');
-        var ctx = canvas.getContext('2d');
-
-        // Define a escala de conversão de milímetros para pixels
-        var mmToPixel = 1; // Cada milímetro é representado por um pixel
-
-        // Função para desenhar uma peça
-        function desenharPeca(x, y, largura, altura, cor) {
-            // Verifica se a peça está dentro dos limites da chapa
-            if (x + largura <= canvas.width / mmToPixel && y + altura <= canvas.height / mmToPixel) {
-                ctx.fillStyle = cor; // Define a cor de preenchimento
-                ctx.fillRect(x * mmToPixel, y * mmToPixel, largura * mmToPixel, altura * mmToPixel); // Desenha o retângulo
-            }
-        }
-
-        // Desenha as peças
-        desenharPeca(10, 100, 2340, 320, 'red'); // Peça 1: (x, y, largura, altura, cor)
-        desenharPeca(10 + 2340 + 10, 100, 200, 900, 'blue'); // Peça 2: (x, y, largura, altura, cor)
-        desenharPeca(10 + 2340, 100, 400, 300, 'green'); // Peça 3: (x, y, largura, altura, cor)
+        document.addEventListener('DOMContentLoaded', function() {
+            const tableContainer = document.getElementById('table-container');
+            let tableHTML = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Quantidade</th>
+                            <th>Comprimento</th>
+                            <th>Largura</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>100</td>
+                            <td>50</td>
+                            <td>Teste 1</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>200</td>
+                            <td>100</td>
+                            <td>Teste 2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            `;
+            tableContainer.innerHTML = tableHTML;
+        });
     </script>
 </body>
-
-
-
-<table border="solid">
-    <tr>
-        <th>Quantidade</th>
-        <th>comprimento</th>
-        <th>largura</th>
-        <th>Descrição</th>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-        <td>4</td>
-    </tr>
-</table>
 </html>

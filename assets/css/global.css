@@ -39,24 +39,11 @@ body{
 }
 
 a { 
-    color: aliceblue;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     width: 99%;
     height: 99%;
     text-align: center;
     margin-top: 60%;
     
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-th {
-    background-color: #f2f2f2;
 }

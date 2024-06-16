@@ -2,8 +2,8 @@ main {
     margin-top: 70px;
     height: 100vh;
     width: 100vw;
-    /* background-image: url('../imagens/6446d3e44f.webp'); */
-    background-size: contain;
+    /* background-image: url('../imagens/6446d3e44f.webp'); 
+    background-size: contain;*/
     display: flex;
     flex-direction: column;
     max-width: 500px;
@@ -12,6 +12,8 @@ main {
 
 body{
     background-color:dark;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 h2 {
@@ -60,7 +62,38 @@ button{
     border-radius: .5rem;
 }
 
+div#res{
+    width: 100vw;
+    height: 100vh;
+    padding: .1rem;
+    background-color: rgb(0, 0, 0);
+    color: #e01d1d;
+}
 
+div#plano-de-corte{
+    width: 100vw;
+    height: 100vh;
+    background-color: aqua;
+}
+
+table {
+    width: 50%;
+    border-collapse: collapse; /* Garante que as bordas das células não se dupliquem */
+    margin-top: 2px; /* Adiciona espaço acima da tabela */
+}
+th, td {
+    border: 1px solid #e01d1d; /* Define a cor e o estilo da borda */
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #924141;
+}
+
+table{
+    border-collapse: collapse;
+}
 
 
   
@@ -75,11 +108,20 @@ button{
     main{
         margin-top: 10px;
     }
+
     div#res{
-        width: 61vw;
+        width: calc(100vw - 520px);
         height: 100vh;
-        background-color: aliceblue;
+        background-color: rgb(0, 0, 0);
         padding: 2rem;
+       
     }
     
+    
+    div#plano-de-corte{
+        display: block;
+        min-width: 500px;
+        height: 100vh;
+        background-color: aqua;
+    }
 }
