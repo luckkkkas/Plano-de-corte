@@ -21,60 +21,75 @@ function cortarRoupeiro(){
     //gerarTabela();
         
     function corpo(altura, largura, vao, ateOTeto) {
-        var lateralH, nlaterais, lateralP, base, prat, travessaGaveta, divisoria, fundoH, fundoL, porta = 0;
+        var lateralH, nlaterais, lateralP, base, prat, travessaGaveta, fundoH, fundoL, porta1, porta2, puxador, cabide, trilho = 0;
         
         if (largura <= 0 || altura <= 0 || profundidade <= 0) {
             // faz verificação para ver se os elementos são válidos
             alert('Altura, largura ou profundidade inválida');
         } else {
-            // --------------------primeiro divide ente ate o teto e não, depois faz as contas;
-
+            //calcula as operações comum para todos
+            lateralP = profundidade - 80;
+            nlaterais = vao + 1;
+            base = largura - 60;
+            trilho = base - 2;
+            
+            // --------------------;
             if (ateOTeto) {
                 //calcula as peças se o movel for ate o teto
-                if(vao === 1){
-                    nlaterais = vao + 1;
-                    lateralP = profundidade - 80;
-                    lateralH = altura - 240;
-                    base = largura - 60;
+                lateralH = altura - 240;
+                puxador = lateralH - 5;
+                if(vao === 1){            
                     prat = largura - 90; 
+                    cabide = prat - 5;
                     travessaGaveta = largura - 148;
                     fundoL = largura - 65;
                     fundoH = altura - 215;
                 }else if(vao === 2){
-                    nlaterais = vao + 1;
-                    lateralP = profundidade - 80;
-                    lateralH = altura - 240;
-                    base = largura - 60;
                     prat = (largura - 105) /2; 
-                    travessaGaveta = ((largura - 105) / 2)- 5.8 ;
-                    fundoL = (largura - 5) /2;
+                    cabide = prat - 5;
+                    travessaGaveta = ((largura - 135) / 2)- 5.8 ;
+                    fundoL = prat + 1.5;
                     fundoH = altura - 215;
+                    porta1 = prat - 20 ;
+                    porta2 = prat + 5; 
+                }else if(vao === 3){
+                    prat = (largura - 120) /3; 
+                    cabide = prat - 5;
+                    travessaGaveta = ((largura - 150) / 3) - 5.8 ;
+                    fundoL = prat + 1.5;
+                    fundoH = altura - 215;
+                    porta1 = prat - 20 ;
+                    porta2 = prat + 5;
                 }
                 //====================abaixo nao é ate o teto==================================================================
             }else{
+                lateralH = altura - 140;
+                Math.round(fundoH) = altura - 145;
+                puxador = lateralH - 5
                 if(vao === 1){
-                    nlaterais = vao + 1;
-                    lateralP = profundidade - 80;
-                    lateralH = altura - 140;
-                    base = largura - 60;
-                    prat = largura - 90; 
+                    prat = largura - 90;
+                    cabide = prat - 5; 
                     travessaGaveta = largura - 148;
                     fundoL = largura - 65;
-                    fundoH = altura - 145;
                 }else if(vao === 2){
-                    nlaterais = vao + 1;
-                    lateralP = profundidade - 80;
-                    lateralH = altura - 140;
-                    base = largura - 60;
                     prat = (largura - 105)/2; 
+                    cabide = prat - 5;
                     travessaGaveta = largura - 148;
-                    fundoL = largura - 65;
-                    fundoH = altura - 145;
+                    Math.round(fundoL) = (largura - 65) / 3 ;
+                    fundoL = prat + 1.5;
+                    porta1 = prat - 20 ;
+                    porta2 = prat + 5;
+                }else if(vao === 3){
+                    prat = (largura - 120)/3; 
+                    cabide = prat - 5;
+                    travessaGaveta = largura - 178;
+                    Math.round(fundoL) = ((largura - 65) / 3 );
+                    fundoL = prat + 1.5;
+                    porta1 = prat - 20;
+                    porta2 = prat + 5;
                 }
             }
-        }
-        
-        gerarTabela() 
+        } gerarTabela() 
         function gerarTabela(){
                     const tableContainer = document.getElementById('res');
                             let tableHTML = `
@@ -124,8 +139,46 @@ function cortarRoupeiro(){
                                             <td>${fundoL}</td>
                                             <td>Fundo</td>
                                         </tr>
+                                        <tr>
+                                            <td>${1}</td>
+                                            <td>${porta1}</td>
+                                            <td>${lateralH - 5}</td>
+                                            <td>porta</td>
+                                        </tr>
+                                        <tr>
+                                            <td>${2}</td>
+                                            <td>${porta2}</td>
+                                            <td>${lateralH - 5}</td>
+                                            <td>porta</td>
+                                        </tr>
                                     </tbody>
                                 </table>
+
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Quantidade</th>
+                                            <th>Comprimento</th>
+                                            <th>Acessório</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>quantidade cabides</td>
+                                            <td>${cabide}</td>
+                                            <td>cabides</td>
+                                        </tr>
+                                        <tr>
+                                            <td>quantidade pux</td>
+                                            <td>${puxador}</td>
+                                            <td>Puxadores</td>
+                                        </tr>
+                                        <tr>
+                                            <td>quantidade trillho(par)</td>
+                                            <td>${trilho}</td>
+                                            <td>Trilho</td>
+                                        </tr>
+
                             `;
                             res.innerHTML = tableHTML;
                 }
@@ -188,24 +241,6 @@ function cortarRoupeiro(){
             
             
           //aqui continua atabela
-        }
-    }
-
-    function fundo(vao){
-        let lar;
-        let h;
-        if(vao === 1){
-            lar = largura - 65;
-            h = altura - 215;
-            //aqui continua atabela
-        }else if(vao === 2){
-            lar = (largura - 65) / 2;
-            h = altura - 215;
-           //aqui continua atabela
-        }else if(vao ===3){
-            lar = (largura - 65) / 3;
-            h = altura - 215;
-            //aqui continua atabela
         }
     }
     
