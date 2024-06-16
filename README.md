@@ -17,11 +17,6 @@ Nota: Este projeto foi criado com o intuito de demonstrar habilidades em program
 🛠️ Tecnologias Utilizadas
 Linguagem de Programação: JavaScript.
 
-🌐 Demo Online
-Experimente a aplicação agora mesmo! Acesse a demo online aqui.
-
-Nota: A demo online é uma versão limitada para demonstração das principais funcionalidades.
-
 ![image](https://github.com/luckkkkas/Plano-de-corte/assets/143907115/3e997678-a03c-4a64-99c1-902f59df1cb6)
 
 
