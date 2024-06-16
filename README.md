@@ -24,7 +24,7 @@ Linguagem de Programação: JavaScript.
 👨‍💻 Autor
 Desenvolvido com ❤️ por Lucas.
 
-linkedin ![linkedin.com/in/luckkkkas
+ !(Linkedin)[linkedin.com/in/luckkkkas
 ] 
 
 📢 Convite para Colaboração
